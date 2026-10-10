@@ -1,0 +1,7 @@
+issue,count,decision
+exact_duplicate_rows,1,Keep the first exact row and remove later identical copies.
+invalid_score_values,1,"Treat scores outside 0-100 as missing; impute by location median, then overall median."
+invalid_negative_counts,1,"Treat negative footfall/complaints as missing; impute by location median, then overall median."
+missing_or_unrecognized_water_labels,1,Normalize valid labels; replace missing or unknown labels with Unknown.
+invalid_or_missing_inspection_date_rows,1,Drop rows without a parseable inspection date; the observation cannot be placed in time.
+numeric_outlier_rows,2,Flag values beyond 1.5x IQR fences and cap each numeric value to its column fence; preserve raw source unchanged.

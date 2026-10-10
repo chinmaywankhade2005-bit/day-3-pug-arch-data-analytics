@@ -1,0 +1,14 @@
+source_row,facility_id,issue,field,original_value,decision
+50,FAC-01-006,exact_duplicate,*,identical row,Removed duplicate; retained first occurrence.
+17,FAC-02-004,invalid_score,odor_score,145,"Set to missing and imputed by location median, then overall median."
+42,FAC-04-005,invalid_negative_count,complaints,-4,"Set to missing and imputed by location median, then overall median."
+4,FAC-01-003,missing_numeric,cleanliness_score,missing or invalid,"Imputed by location median, then overall median."
+17,FAC-02-004,missing_numeric,odor_score,missing or invalid,"Imputed by location median, then overall median."
+42,FAC-04-005,missing_numeric,complaints,missing or invalid,"Imputed by location median, then overall median."
+10,FAC-01-009,missing_or_unrecognized_water,water_availability,<NA>,Replaced with Unknown.
+33,FAC-03-008,invalid_inspection_date,inspection_date,not-a-date,Dropped row because it cannot be reliably identified or placed in time.
+51,FAC-99-001,iqr_outlier,cleanliness_score,1.0,"Capped to IQR fence [43.875, 104.875] in cleaned copy."
+51,FAC-99-001,iqr_outlier,odor_score,99.0,"Capped to IQR fence [-3.625, 45.375] in cleaned copy."
+51,FAC-99-001,iqr_outlier,waste_level,98.0,"Capped to IQR fence [3.750, 45.750] in cleaned copy."
+24,FAC-02-011,iqr_outlier,footfall,25000.0,"Capped to IQR fence [75.500, 263.500] in cleaned copy."
+51,FAC-99-001,iqr_outlier,complaints,34.0,"Capped to IQR fence [-0.500, 11.500] in cleaned copy."

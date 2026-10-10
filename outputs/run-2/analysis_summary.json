@@ -1,0 +1,294 @@
+{
+  "dataset_note": "Synthetic sample data; not operational facility observations.",
+  "cleaned_record_count": 48,
+  "location_count": 4,
+  "cleaning": {
+    "input_rows": 50,
+    "exact_duplicate_rows_removed": 1,
+    "rows_dropped_for_missing_id_or_invalid_date": 1,
+    "output_rows": 48,
+    "invalid_score_values": 1,
+    "invalid_negative_count_values": 1,
+    "missing_numeric_values_imputed": {
+      "cleanliness_score": 1,
+      "odor_score": 1,
+      "waste_level": 0,
+      "footfall": 0,
+      "complaints": 1
+    },
+    "outlier_values_by_column": {
+      "cleanliness_score": 1,
+      "odor_score": 1,
+      "waste_level": 1,
+      "footfall": 1,
+      "complaints": 1
+    },
+    "rows_with_at_least_one_outlier": 2,
+    "iqr_bounds_by_column": {
+      "cleanliness_score": [
+        43.875,
+        104.875
+      ],
+      "odor_score": [
+        -3.625,
+        45.375
+      ],
+      "waste_level": [
+        3.75,
+        45.75
+      ],
+      "footfall": [
+        75.5,
+        263.5
+      ],
+      "complaints": [
+        -0.5,
+        11.5
+      ]
+    },
+    "quality_issue_count": 13,
+    "cleaning_decisions": [
+      "Keep the first exact row and remove later identical copies.",
+      "Treat scores outside 0-100 as missing; impute by location median, then overall median.",
+      "Treat negative footfall/complaints as missing; impute by location median, then overall median.",
+      "Normalize valid labels; replace missing or unknown labels with Unknown.",
+      "Drop rows without a parseable inspection date; the observation cannot be placed in time.",
+      "Flag values beyond 1.5x IQR fences and cap each numeric value to its column fence; preserve raw source unchanged."
+    ]
+  },
+  "numeric_descriptive_statistics": {
+    "cleanliness_score": {
+      "count": 48.0,
+      "mean": 74.25,
+      "std": 9.9,
+      "min": 43.88,
+      "25%": 66.75,
+      "50%": 75.0,
+      "75%": 82.0,
+      "max": 88.0
+    },
+    "odor_score": {
+      "count": 48.0,
+      "mean": 21.05,
+      "std": 7.81,
+      "min": 10.0,
+      "25%": 14.75,
+      "50%": 20.0,
+      "75%": 27.0,
+      "max": 45.38
+    },
+    "waste_level": {
+      "count": 48.0,
+      "mean": 24.66,
+      "std": 7.12,
+      "min": 15.0,
+      "25%": 19.5,
+      "50%": 23.0,
+      "75%": 30.0,
+      "max": 45.75
+    },
+    "footfall": {
+      "count": 48.0,
+      "mean": 170.44,
+      "std": 33.96,
+      "min": 110.0,
+      "25%": 146.0,
+      "50%": 169.5,
+      "75%": 193.0,
+      "max": 264.0
+    },
+    "complaints": {
+      "count": 48.0,
+      "mean": 5.48,
+      "std": 1.81,
+      "min": 2.0,
+      "25%": 4.0,
+      "50%": 5.0,
+      "75%": 7.0,
+      "max": 12.0
+    }
+  },
+  "pearson_correlation": {
+    "cleanliness_score": {
+      "cleanliness_score": 1.0,
+      "odor_score": -0.904,
+      "waste_level": -0.875,
+      "footfall": 0.163,
+      "complaints": -0.801
+    },
+    "odor_score": {
+      "cleanliness_score": -0.904,
+      "odor_score": 1.0,
+      "waste_level": 0.901,
+      "footfall": -0.129,
+      "complaints": 0.823
+    },
+    "waste_level": {
+      "cleanliness_score": -0.875,
+      "odor_score": 0.901,
+      "waste_level": 1.0,
+      "footfall": -0.043,
+      "complaints": 0.952
+    },
+    "footfall": {
+      "cleanliness_score": 0.163,
+      "odor_score": -0.129,
+      "waste_level": -0.043,
+      "footfall": 1.0,
+      "complaints": -0.003
+    },
+    "complaints": {
+      "cleanliness_score": -0.801,
+      "odor_score": 0.823,
+      "waste_level": 0.952,
+      "footfall": -0.003,
+      "complaints": 1.0
+    }
+  },
+  "water_availability_summary": [
+    {
+      "water_availability": "Available",
+      "records": 37,
+      "mean_cleanliness": 74.81,
+      "mean_complaints": 5.38
+    },
+    {
+      "water_availability": "Unavailable",
+      "records": 10,
+      "mean_cleanliness": 71.79,
+      "mean_complaints": 5.8
+    },
+    {
+      "water_availability": "Unknown",
+      "records": 1,
+      "mean_cleanliness": 78.0,
+      "mean_complaints": 6.0
+    }
+  ],
+  "insights": [
+    "West has the highest mean cleanliness score (84.50); South has the lowest (63.50).",
+    "Across cleaned records, cleanliness and complaints have a Pearson correlation of -0.801.",
+    "Records marked Unavailable average 0.42 higher complaints than records marked Available (mean difference +0.42)."
+  ],
+  "learning_demonstrations": {
+    "numpy": {
+      "array": [
+        [
+          82.0,
+          17.0,
+          13.0
+        ],
+        [
+          74.0,
+          28.0,
+          21.0
+        ],
+        [
+          91.0,
+          12.0,
+          9.0
+        ]
+      ],
+      "dimensions": 2,
+      "shape": [
+        3,
+        3
+      ],
+      "first_facility": [
+        82.0,
+        17.0,
+        13.0
+      ],
+      "cleanliness_column_slice": [
+        82.0,
+        74.0,
+        91.0
+      ],
+      "plus_five_math_operation": [
+        [
+          87.0,
+          22.0,
+          18.0
+        ],
+        [
+          79.0,
+          33.0,
+          26.0
+        ],
+        [
+          96.0,
+          17.0,
+          14.0
+        ]
+      ],
+      "column_aggregations": {
+        "mean": [
+          82.33,
+          19.0,
+          14.33
+        ],
+        "sum": [
+          247.0,
+          57.0,
+          43.0
+        ],
+        "minimum": [
+          74.0,
+          12.0,
+          9.0
+        ]
+      }
+    },
+    "pandas": {
+      "series_name": "cleanliness_score",
+      "series_length": 48,
+      "dataframe_shape": [
+        48,
+        9
+      ],
+      "filtered_low_cleanliness_count": 17,
+      "top_complaint_rows": [
+        {
+          "facility_id": "FAC-99-001",
+          "complaints": 12
+        },
+        {
+          "facility_id": "FAC-02-009",
+          "complaints": 8
+        },
+        {
+          "facility_id": "FAC-02-003",
+          "complaints": 8
+        }
+      ],
+      "grouped_by_location": [
+        {
+          "location": "East",
+          "facility_records": 12,
+          "mean_cleanliness": 68.32,
+          "total_complaints": 77
+        },
+        {
+          "location": "North",
+          "facility_records": 12,
+          "mean_cleanliness": 80.67,
+          "total_complaints": 55
+        },
+        {
+          "location": "South",
+          "facility_records": 12,
+          "mean_cleanliness": 63.5,
+          "total_complaints": 84
+        },
+        {
+          "location": "West",
+          "facility_records": 12,
+          "mean_cleanliness": 84.5,
+          "total_complaints": 47
+        }
+      ],
+      "csv_read_method": "pandas.read_csv",
+      "data_transformation": "scores/counts parsed to numeric; dates parsed; location and water labels normalized; numeric outliers capped to IQR fences"
+    }
+  }
+}

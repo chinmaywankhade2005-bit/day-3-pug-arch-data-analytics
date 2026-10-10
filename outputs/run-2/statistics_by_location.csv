@@ -1,0 +1,5 @@
+location,records,mean_cleanliness,mean_odor,mean_waste,mean_footfall,total_complaints,mean_complaints,unavailable_water_records
+West,12,84.5,13.0,18.0,196.5,47,3.92,2
+North,12,80.67,16.0,20.0,142.5,55,4.58,3
+East,12,68.32,25.53,27.65,175.25,77,6.42,3
+South,12,63.5,29.67,33.0,167.5,84,7.0,2
